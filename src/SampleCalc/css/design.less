@@ -1,0 +1,154 @@
+@screenColor: #000000;
+@screenBackgroundColor: #eeeeee;
+@calculatorBackgroundColor: #ffffff;
+
+@numButtonColor: #000000;
+@numButtonHoverColor: #000000;
+@numButtonDownColor: #000000;
+@numButtonBackgroundColor: #ffffff;
+@numButtonHoverBackgroundColor: #ffffff;
+@numButtonDownBackgroundColor: #ffffff;
+
+@opButtonColor: #ffffff;
+@opButtonHoverColor: #ffffff;
+@opButtonDownColor: #ffffff;
+@opButtonBackgroundColor: #999999;
+@opButtonHoverBackgroundColor: #999999;
+@opButtonDownBackgroundColor: #999999;
+
+@clearButtonColor: #ffffff;
+@clearButtonHoverColor: #ffffff;
+@clearButtonDownColor: #ffffff;
+@clearButtonBackgroundColor: #000000;
+@clearButtonHoverBackgroundColor: #000000;
+@clearButtonDownBackgroundColor: #000000;
+
+@equalButtonColor: #000000;
+@equalButtonHoverColor: #000000;
+@equalButtonDownColor: #000000;
+@equalButtonBackgroundColor: #cccccc;
+@equalButtonHoverBackgroundColor: #cccccc;
+@equalButtonDownBackgroundColor: #cccccc;
+
+@mOpButtonColor: #ffffff;
+@mOpButtonHoverColor: #ffffff;
+@mOpButtonDownColor: #ffffff;
+@mOpButtonBackgroundColor: #666666;
+@mOpButtonHoverBackgroundColor: #666666;
+@equalButtonDownBackgroundColor: #666666;
+
+#calculator {
+    width: 170px;
+    border: 1px solid #000;
+    border-bottom: none;
+    .boxShadow(2px, 2px, 0);
+    .borderRadius(5px, 0, 5px, 0);
+    background-color: @calculatorBackgroundColor;
+}
+
+#calculator > div > div {
+    margin: 5px;
+}
+
+#screen {
+    color: @screenColor;
+    text-align: right;
+    margin: 3px;
+    padding: 2px;
+    background-color: @screenBackgroundColor;
+    .borderRadius(5px, 5px, 0, 0);
+}
+
+#screen > span {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.button {
+    text-align:center;
+    border: 1px solid #000;
+    width: 30px;
+    float: left;
+    .boxShadow(2px, 2px, 1px, rgba(0, 0, 0, 0.5);
+    .borderRadiusAll(3px);
+}
+
+.num {
+    .setButtonColor(@numButtonColor, @numButtonBackgroundColor);
+}
+
+.num:hover {
+    .setButtonColor(@numButtonHoverColor, @numButtonHoverBackgroundColor);
+}
+
+.op {
+    .setButtonColor(@opButtonColor, @opButtonBackgroundColor);
+}
+
+.op:hover {
+    .setButtonColor(@opButtonHoverColor, @opButtonHoverBackgroundColor);
+}
+
+#buttonClear {
+    .setButtonColor(@clearButtonColor, @clearButtonBackgroundColor);
+}
+
+#buttonClear:hover {
+    .setButtonColor(@clearButtonHoverColor, @clearButtonHoverBackgroundColor);
+}
+
+#buttonEqual {
+    .setButtonColor(@equalButtonColor, @equalButtonBackgroundColor);
+}
+
+#buttonEqual:hover {
+    .setButtonColor(@equalButtonHoverColor, @equalButtonHoverBackgroundColor);
+}
+
+.mOp {
+    .setButtonColor(@mOpButtonColor, @mOpButtonBackgroundColor);
+}
+
+.mOp:hover {
+    .setButtonColor(@mOpButtonHoverColor, @mOpButtonHoverBackgroundColor);
+}
+
+.buttonDown {
+    box-shadow: none;
+}
+
+.buttonBox {
+    border-bottom: 1px solid #000;
+    clear: left;
+}
+
+
+.setButtonColor(@color: #000000, @backgroundColor: #ffffff) {
+    color: @color;
+    background-color: @backgroundColor
+}
+
+
+.borderRadius (@topLeft: 0, @topRight: 0, @bottomRight: 0, @bottomLeft: 0) {
+    -webkit-border-top-left-radius: @topLeft;
+    -webkit-border-top-right-radius: @topRight;
+    -webkit-border-bottom-right-radius: @bottomRight;
+    -webkit-border-bottom-left-radius: @bottomLeft;
+    -moz-border-radius-topleft: @topLeft;
+    -moz-border-raiuds-topright: @topRight;
+    -moz-border-radius-bottomright: @bottomRight;
+    -moz-border-radius-bottomleft: @bottomLeft;
+    border-radius: @arguments;
+}
+
+.borderRadiusAll (@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.boxShadow (@x: 1px, @y: 1px, @blur: 1px, @color: #000) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments;
+}

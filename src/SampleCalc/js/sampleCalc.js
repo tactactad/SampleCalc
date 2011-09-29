@@ -158,11 +158,4 @@ $(function() {
             calc.mCalculate(operator);
         });
     });
-    $('.button').each(function() {
-        $(this).mousedown(function() {
-            $(this).addClass('buttonDown');
-        }).mouseup(function() {
-            $(this).removeClass('buttonDown');
-        });
-    });
 });

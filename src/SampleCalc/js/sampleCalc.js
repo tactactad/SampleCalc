@@ -13,6 +13,11 @@ var SampleCalc = function() {
 
     this.inputValue = function(value) {
         console.log('input ' + value);
+        value = String(value);
+        if (!value.match(/^[0-9]{1}$/)) {
+            console.log('invalid value...');
+            return;
+        }
         if (this.stack === '0' || this.last !== 'num' ) {
             this.stack = '';
         }
@@ -25,6 +30,11 @@ var SampleCalc = function() {
 
     this.inputOperator = function(newOperator) {
         console.log('input ' + newOperator);
+        newOperator = String(newOperator);
+        if (!newOperator.match(/^(add|sub|mult|div)$/)) {
+            console.log('invalid value...');
+            return;
+        }
        if (this.last !== 'num') {
             this.operator = '';
         }
@@ -34,7 +44,7 @@ var SampleCalc = function() {
         if (this.operator) {
             this.calculate();
         } else {
-            this.total = parseInt(this.stack);
+            this.total = parseInt(this.stack, 10);
         }
         this.operator = newOperator;
         this.last = 'op';
@@ -59,7 +69,7 @@ var SampleCalc = function() {
     this.equal = function() {
         console.log('operator is equal');
         if (this.last === 'op') {
-            this.total = parseInt(this.stack);
+            this.total = parseInt(this.stack, 10);
         }
         if (this.operator) {
             this.calculate();
@@ -76,19 +86,19 @@ var SampleCalc = function() {
         console.log('start calculate...');
         switch (this.operator) {
         case 'add':
-            this.total = this.total + parseInt(this.stack);
+            this.total = this.total + parseInt(this.stack, 10);
             break;
         case 'sub':
-            this.total = this.total - parseInt(this.stack);
+            this.total = this.total - parseInt(this.stack, 10);
             break;
         case 'mult':
-            this.total = this.total * parseInt(this.stack);
+            this.total = this.total * parseInt(this.stack, 10);
             break;
         case 'div':
-            if (this.total == 0 || parseInt(this.stack) == 0) {
+            if (this.total == 0 || parseInt(this.stack, 10) == 0) {
                 this.total = 0;
             } else {
-                this.total = this.total / parseInt(this.stack);
+                this.total = this.total / parseInt(this.stack, 10);
             }
             break;
         default:
@@ -102,6 +112,11 @@ var SampleCalc = function() {
 
     this.mCalculate = function(mOperator) {
         console.log('start mCalculate...');
+        mOperator = String(mOperator);
+        if (!mOperator.match(/^(mAdd|mSub|mResult|mClear)$/)) {
+            console.log('invalid value...');
+            return;
+        }
         var exp = parseInt(this.stack);
         console.log('exp is ' + exp);
         console.log('mOperator is ' + mOperator);

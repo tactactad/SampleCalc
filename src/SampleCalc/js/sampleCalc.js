@@ -18,6 +18,9 @@ var SampleCalc = function() {
             console.log('invalid value...');
             return;
         }
+        if (this.last === 'eq') {
+            this.operator = '';
+        }
         if (this.stack === '0' || this.last !== 'num' ) {
             this.stack = '';
         }
@@ -35,10 +38,10 @@ var SampleCalc = function() {
             console.log('invalid value...');
             return;
         }
-       if (this.last !== 'num') {
+        if (this.last !== 'num') {
             this.operator = '';
         }
-       if (this.last === 'eq') {
+        if (this.last === 'eq') {
             this.stack = String(this.total);
         }
         if (this.operator) {

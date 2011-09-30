@@ -118,11 +118,37 @@ test('input first', function() {
     deepEqual(this.calc.stack, '0');
     deepEqual($('#screen').text(), '0');
 });
+test('input later', function() {
+    this.calc.inputValue(3);
+    this.calc.inputValue(5);
+    this.calc.inputOperator('add');
+    this.calc.inputOperator('equal');
+    this.calc.clear();
+    deepEqual(this.calc.total, 0);
+    deepEqual(this.calc.last, 'num');
+    deepEqual(this.calc.operator, '');
+    deepEqual(this.calc.stack, '0');
+});
 
 module('equal', {
     setup: function() {
         this.calc = new SampleCalc();
     }
+});
+test('continuously calculate', function() {
+    this.calc.inputValue(2);
+    this.calc.inputOperator('add');
+    this.calc.equal();
+    deepEqual(this.calc.total, 4);
+    deepEqual(this.calc.stack, '2');
+    deepEqual(this.calc.operator, 'add');
+    deepEqual(this.calc.last, 'eq');
+    this.calc.equal();
+    this.calc.equal();
+    deepEqual(this.calc.total, 8);
+    deepEqual(this.calc.stack, '2');
+    deepEqual(this.calc.operator, 'add');
+    deepEqual(this.calc.last, 'eq');
 });
 
 module('calculate', {

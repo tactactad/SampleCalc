@@ -133,7 +133,7 @@ var SampleCalc = function() {
             this.mTotal = this.mTotal - exp;
             break;
         case 'mResult':
-            this.display(this.mTotal);
+            this.push(this.mTotal);
             break;
         case 'mClear':
             this.mTotal = 0;

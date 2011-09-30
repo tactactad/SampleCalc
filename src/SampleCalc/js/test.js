@@ -233,6 +233,36 @@ module('mCalculate', {
         this.calc = new SampleCalc();
     }
 });
+test('m+', function() {
+    this.calc.inputValue('5');
+    this.calc.mCalculate('mAdd');
+    this.calc.inputValue(4);
+    this.calc.mCalculate('mAdd');
+    deepEqual(this.calc.mTotal, 9);
+});
+test('m-', function() {
+    this.calc.inputValue('5');
+    this.calc.mCalculate('mAdd');
+    this.calc.inputValue(4);
+    this.calc.mCalculate('mSub');
+    deepEqual(this.calc.mTotal, 1);
+});
+test('mr', function() {
+    this.calc.inputValue('1');
+    this.calc.inputValue('5');
+    this.calc.mCalculate('mAdd');
+    this.calc.mCalculate('mResult');
+    deepEqual(this.calc.mTotal, 15);
+    deepEqual(this.calc.stack, '15');
+});
+test('mc', function() {
+    this.calc.inputValue('1');
+    this.calc.mCalculate('mAdd');
+    this.calc.mCalculate('mResult');
+    deepEqual(this.calc.mTotal, 1);
+    this.calc.mCalculate('mClear');
+    deepEqual(this.calc.mTotal, 0);
+});
 test('validate', function() {
     this.calc.mCalculate('mResult');
     this.calc.mCalculate('add');

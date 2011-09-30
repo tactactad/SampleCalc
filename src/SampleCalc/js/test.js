@@ -65,6 +65,20 @@ test('zero start triple figures', function() {
     deepEqual(this.calc.last, 'num');
     deepEqual($('#screen').text(), '56');
 });
+test('input after equal', function() {
+    this.calc.inputValue(2);
+    this.calc.inputOperator('add');
+    this.calc.inputValue(3);
+    this.calc.equal();
+    this.calc.inputValue(4);
+    deepEqual(this.calc.stack, '4');
+    deepEqual(this.calc.operator, '');
+    deepEqual(this.calc.total, 4);
+    this.calc.equal();
+    deepEqual(this.calc.stack, '4');
+    deepEqual(this.calc.operator, '');
+    deepEqual(this.calc.total, 4);
+});
 test('validate', function() {
     this.calc.inputValue('11');
     deepEqual(this.calc.stack, '0');

@@ -109,6 +109,21 @@ test('input second', function () {
     deepEqual(this.calc.total, 0);
     deepEqual(this.calc.last, 'op');
 });
+test('input after equal', function() {
+    this.calc.inputValue(2);
+    this.calc.inputOperator('add');
+    this.calc.inputValue(3);
+    this.calc.equal();
+    this.calc.inputOperator('mult');
+    deepEqual(this.calc.stack, '5');
+    deepEqual(this.calc.operator, 'mult');
+    deepEqual(this.calc.total, 5);
+    this.calc.inputValue(3);
+    this.calc.equal();
+    deepEqual(this.calc.stack, '3');
+    deepEqual(this.calc.operator, 'mult');
+    deepEqual(this.calc.total, 15);
+});
 test('validate', function() {
     this.calc.inputOperator('mAdd');
     deepEqual(this.calc.operator, '');

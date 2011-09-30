@@ -142,6 +142,9 @@ var SampleCalc = function() {
             break;
         }
         this.last = 'op';
+        if (mOperator !== 'mResult') {
+            this.display(exp);
+        }
         console.log('mTotal is ' + this.mTotal);
         console.log('total is ' + this.total);
         console.log('last is ' + this.last);
@@ -149,7 +152,11 @@ var SampleCalc = function() {
     };
 };
 SampleCalc.prototype.display = function(value) {
-    $('#screen').text(String(parseInt(value, 10))); // 小数点を無視するので丸めてる
+    $('#screen span').fadeOut('fast', function() {
+        $('#screen span').text(String(parseInt(value, 10)));
+        $('#screen span').fadeIn('fast');
+    });// 小数点を無視するので丸めてる
+//    $('#screen span').text(String(parseInt(value, 10)));
 };
 
 $(function() {

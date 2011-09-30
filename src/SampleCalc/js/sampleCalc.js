@@ -18,13 +18,14 @@ var SampleCalc = function() {
             console.log('invalid value...');
             return;
         }
-        if (this.last === 'eq') {
-            this.operator = '';
-        }
         if (this.stack === '0' || this.last !== 'num' ) {
             this.stack = '';
         }
         this.stack += value;
+        if (this.last === 'eq') {
+            this.operator = '';
+            this.total = parseInt(this.stack, 10);
+        }
         this.last = 'num';
         this.push(this.stack);
         console.log('stack is ' + this.stack);
@@ -71,7 +72,7 @@ var SampleCalc = function() {
 
     this.equal = function() {
         console.log('operator is equal');
-        if (this.last === 'op') {
+       if (this.last === 'op') {
             this.total = parseInt(this.stack, 10);
         }
         if (this.operator) {
@@ -87,21 +88,22 @@ var SampleCalc = function() {
 
     this.calculate= function() {
         console.log('start calculate...');
+        var stack = parseInt(this.stack, 10);
         switch (this.operator) {
         case 'add':
-            this.total = this.total + parseInt(this.stack, 10);
+            this.total = this.total + stack;
             break;
         case 'sub':
-            this.total = this.total - parseInt(this.stack, 10);
+            this.total = this.total - stack;
             break;
         case 'mult':
-            this.total = this.total * parseInt(this.stack, 10);
+            this.total = this.total * stack;
             break;
         case 'div':
-            if (this.total == 0 || parseInt(this.stack, 10) == 0) {
+            if (this.total === 0 || stack === 0) {
                 this.total = 0;
             } else {
-                this.total = this.total / parseInt(this.stack, 10);
+                this.total = this.total / stack;
             }
             break;
         default:
@@ -120,7 +122,7 @@ var SampleCalc = function() {
             console.log('invalid value...');
             return;
         }
-        var exp = parseInt(this.stack);
+        var exp = parseInt(this.stack, 10);
         console.log('exp is ' + exp);
         console.log('mOperator is ' + mOperator);
         switch (mOperator) {
@@ -147,7 +149,7 @@ var SampleCalc = function() {
     };
 };
 SampleCalc.prototype.display = function(value) {
-    $('#screen').text(String(parseInt(value))); // 小数点を無視するので丸めてる
+    $('#screen').text(String(parseInt(value, 10))); // 小数点を無視するので丸めてる
 };
 
 $(function() {

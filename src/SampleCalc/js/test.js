@@ -18,7 +18,9 @@ module('display', {
     }
 });
 test('display', function() {
-    deepEqual($('#screen').text(), '1');
+    setTimeout(function() {
+        deepEqual($('#screen').text(), '1');
+    }, 500);
 });
 
 module('push', {
@@ -41,21 +43,27 @@ test('single figure', function() {
     this.calc.inputValue('2');
     deepEqual(this.calc.stack, '2');
     deepEqual(this.calc.last, 'num');
-    deepEqual($('#screen').text(), '2');
+    setTimeout(function() {
+        deepEqual($('#screen').text(), '2');
+    }, 500);
 });
 test('double figures', function() {
     this.calc.inputValue('2');
     this.calc.inputValue('3');
     deepEqual(this.calc.stack, '23');
     deepEqual(this.calc.last, 'num');
-    deepEqual($('#screen').text(), '23');
+    setTimeout(function() {
+        deepEqual($('#screen').text(), '23');
+    }, 500);
 });
 test('zero start double figures', function() {
     this.calc.inputValue('0');
     this.calc.inputValue('4');
     deepEqual(this.calc.stack, '4');
     deepEqual(this.calc.last, 'num');
-    deepEqual($('#screen').text(), '4');
+    setTimeout(function() {
+        deepEqual($('#screen').text(), '4');
+    }, 500);
 });
 test('zero start triple figures', function() {
     this.calc.inputValue('0');
@@ -63,7 +71,9 @@ test('zero start triple figures', function() {
     this.calc.inputValue('6');
     deepEqual(this.calc.stack, '56');
     deepEqual(this.calc.last, 'num');
-    deepEqual($('#screen').text(), '56');
+    setTimeout(function() {
+        deepEqual($('#screen').text(), '56');
+    }, 500);
 });
 test('input after equal', function() {
     this.calc.inputValue(2);
@@ -280,5 +290,7 @@ module('buttonClick', {
 });
 test('numButton clicked', function() {
     $('#button3').click();
-    deepEqual($('#screen').text(), '3');
+    setTimeout(function() {
+        deepEqual($('#screen').text(), '3');
+    }, 500);
 });

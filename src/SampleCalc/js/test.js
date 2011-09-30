@@ -21,6 +21,17 @@ test('display', function() {
     deepEqual($('#screen').text(), '1');
 });
 
+module('push', {
+    setup: function() {
+        this.calc = new SampleCalc();
+    }
+});
+test('push', function() {
+    this.calc.push(1);
+    deepEqual(this.calc.stack, '1');
+    notDeepEqual(this.calc.stack, 1);
+});
+
 module('inputValue', {
     setup: function() {
         this.calc = new SampleCalc();
@@ -92,6 +103,33 @@ test('validate', function() {
     this.calc.mCalculate('mResult');
     deepEqual(this.calc.operator, '');
 });
+
+
+module('clear', {
+    setup: function() {
+        this.calc = new SampleCalc();
+    }
+});
+test('input first', function() {
+    this.calc.clear();
+    deepEqual(this.calc.total, 0);
+    deepEqual(this.calc.last, 'num');
+    deepEqual(this.calc.operator, '');
+    deepEqual(this.calc.stack, '0');
+    deepEqual($('#screen').text(), '0');
+});
+
+module('equal', {
+    setup: function() {
+        this.calc = new SampleCalc();
+    }
+});
+
+module('calculate', {
+    setup: function() {
+        this.calc = new SampleCalc();
+    }
+});
 test('calculate add', function() {
     this.calc.inputValue('2');
     this.calc.inputOperator('add');
@@ -135,21 +173,6 @@ test('calculate div', function() {
     deepEqual(this.calc.stack, '2');
 });
 
-module('clear', {
-    setup: function() {
-        this.calc = new SampleCalc();
-    }
-});
-module('equal', {
-    setup: function() {
-        this.calc = new SampleCalc();
-    }
-});
-module('calculate', {
-    setup: function() {
-        this.calc = new SampleCalc();
-    }
-});
 module('mCalculate', {
     setup: function() {
         this.calc = new SampleCalc();

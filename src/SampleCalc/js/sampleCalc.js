@@ -98,7 +98,7 @@ var SampleCalc = function() {
             this.total = this.total * parseInt(this.stack, 10);
             break;
         case 'div':
-            if (this.total == 0 || parseInt(this.stack, 10) == 0) {
+            if (this.total === 0 || parseInt(this.stack, 10) === 0) {
                 this.total = 0;
             } else {
                 this.total = this.total / parseInt(this.stack, 10);
@@ -120,7 +120,7 @@ var SampleCalc = function() {
             console.log('invalid value...');
             return;
         }
-        var exp = parseInt(this.stack);
+        var exp = parseInt(this.stack, 10);
         console.log('exp is ' + exp);
         console.log('mOperator is ' + mOperator);
         switch (mOperator) {
@@ -147,7 +147,7 @@ var SampleCalc = function() {
     };
 };
 SampleCalc.prototype.display = function(value) {
-    $('#screen').text(String(parseInt(value))); // 小数点を無視するので丸めてる
+    $('#screen').text(String(parseInt(value, 10))); // 小数点を無視するので丸めてる
 };
 
 $(function() {

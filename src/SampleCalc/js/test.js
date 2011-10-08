@@ -174,20 +174,6 @@ module('equal', {
         this.calc = new SampleCalc();
     }
 });
-/*test('continuously calculate', function() {
-    this.calc.inputValue(2);
-    this.calc.inputOperator('add');
-    this.calc.equal();
-    deepEqual(this.calc.total, 2);
-    deepEqual(this.calc.stack, '2');
-    deepEqual(this.calc.operator, '');
-    deepEqual(this.calc.last, 'eq');
-    this.calc.equal();
-    deepEqual(this.calc.total, 4);
-    deepEqual(this.calc.stack, '4');
-    deepEqual(this.calc.operator, '');
-    deepEqual(this.calc.last, 'eq');
-});*/
 
 module('calculate', {
     setup: function() {

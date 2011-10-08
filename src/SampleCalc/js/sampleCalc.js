@@ -2,7 +2,7 @@ var SampleCalc = function() {
     this.total = 0;
     this.stack = '0';
     this.operator = '';
-    this.last = 'num'; // 'num': 数字, 'op': 演算子, 'eq': イコール
+    this.last = 'num'; // 'num': 数字, 'op': 演算子
 
     this.mTotal = 0;
 

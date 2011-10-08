@@ -22,10 +22,6 @@ var SampleCalc = function() {
             this.stack = '';
         }
         this.stack += value;
-        if (this.last === 'eq') {
-            this.operator = '';
-            this.total = parseInt(this.stack, 10);
-        }
         this.last = 'num';
         this.push(this.stack);
         console.log('stack is ' + this.stack);
@@ -41,9 +37,6 @@ var SampleCalc = function() {
         }
         if (this.last !== 'num') {
             this.operator = '';
-        }
-        if (this.last === 'eq') {
-            this.stack = String(this.total);
         }
         if (this.operator) {
             this.calculate();
@@ -72,15 +65,13 @@ var SampleCalc = function() {
 
     this.equal = function() {
         console.log('operator is equal');
-       if (this.last === 'op') {
-            this.total = parseInt(this.stack, 10);
-        }
         if (this.operator) {
             this.calculate();
         } else {
-            this.push(this.stack);
+            this.total = parseInt(this.stack, 10);
         }
-        this.display(this.total);
+        this.operator = '';
+        this.push(this.total);
         this.last = 'eq';
         console.log('operator is ' + this.operator);
         console.log('last is ' + this.last);
@@ -156,7 +147,6 @@ SampleCalc.prototype.display = function(value) {
         $('#screen span').text(String(parseInt(value, 10)));
         $('#screen span').fadeIn('fast');
     });// 小数点を無視するので丸めてる
-//    $('#screen span').text(String(parseInt(value, 10)));
 };
 
 $(function() {

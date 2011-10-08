@@ -83,7 +83,7 @@ test('input after equal', function() {
     this.calc.inputValue(4);
     deepEqual(this.calc.stack, '4');
     deepEqual(this.calc.operator, '');
-    deepEqual(this.calc.total, 4);
+    deepEqual(this.calc.total, 5);
     this.calc.equal();
     deepEqual(this.calc.stack, '4');
     deepEqual(this.calc.operator, '');
@@ -130,8 +130,8 @@ test('input after equal', function() {
     deepEqual(this.calc.total, 5);
     this.calc.inputValue(3);
     this.calc.equal();
-    deepEqual(this.calc.stack, '3');
-    deepEqual(this.calc.operator, 'mult');
+    deepEqual(this.calc.stack, '15');
+    deepEqual(this.calc.operator, '');
     deepEqual(this.calc.total, 15);
 });
 test('validate', function() {
@@ -174,21 +174,20 @@ module('equal', {
         this.calc = new SampleCalc();
     }
 });
-test('continuously calculate', function() {
+/*test('continuously calculate', function() {
     this.calc.inputValue(2);
     this.calc.inputOperator('add');
     this.calc.equal();
+    deepEqual(this.calc.total, 2);
+    deepEqual(this.calc.stack, '2');
+    deepEqual(this.calc.operator, '');
+    deepEqual(this.calc.last, 'eq');
+    this.calc.equal();
     deepEqual(this.calc.total, 4);
-    deepEqual(this.calc.stack, '2');
-    deepEqual(this.calc.operator, 'add');
+    deepEqual(this.calc.stack, '4');
+    deepEqual(this.calc.operator, '');
     deepEqual(this.calc.last, 'eq');
-    this.calc.equal();
-    this.calc.equal();
-    deepEqual(this.calc.total, 8);
-    deepEqual(this.calc.stack, '2');
-    deepEqual(this.calc.operator, 'add');
-    deepEqual(this.calc.last, 'eq');
-});
+});*/
 
 module('calculate', {
     setup: function() {
@@ -200,19 +199,19 @@ test('calculate add', function() {
     this.calc.inputOperator('add');
     this.calc.inputValue('3');
     this.calc.equal();
-    deepEqual(this.calc.operator, 'add');
+    deepEqual(this.calc.operator, '');
     deepEqual(this.calc.total, 5);
     deepEqual(this.calc.last, 'eq');
-    deepEqual(this.calc.stack, '3'); // equalの時にはtotalをstackにコピーしない。
+    deepEqual(this.calc.stack, '5');
 });
 test('calculate sub', function() {
     this.calc.inputValue(2);
     this.calc.inputOperator('sub');
     this.calc.inputValue(3);
     this.calc.equal();
-    deepEqual(this.calc.operator, 'sub');
+    deepEqual(this.calc.operator, '');
     deepEqual(this.calc.total, -1);
-    deepEqual(this.calc.stack, '3');
+    deepEqual(this.calc.stack, '-1');
 });
 test('calcute mult', function() {
     this.calc.inputValue(2);
@@ -227,15 +226,15 @@ test('calculate div', function() {
     this.calc.inputOperator('div');
     this.calc.inputValue(4);
     this.calc.equal();
-    deepEqual(this.calc.operator, 'div');
+    deepEqual(this.calc.operator, '');
     deepEqual(this.calc.total, 0);
-    deepEqual(this.calc.stack, '4');
+    deepEqual(this.calc.stack, '0');
     this.calc.inputValue(6);
     this.calc.inputOperator('div');
     this.calc.inputValue(2);
     this.calc.equal();
     deepEqual(this.calc.total, 3);
-    deepEqual(this.calc.stack, '2');
+    deepEqual(this.calc.stack, '3');
 });
 
 module('mCalculate', {

@@ -37,13 +37,13 @@ SampleCalc.prototype = {
     equal: function () {
         this.calculate();
         this.operator = '';
-        this.push(this.total);
         this.last = 'eq';
+        this.push(this.total);
     },
     clear: function () {
         this.total = 0;
-        this.last = 'num';
         this.operator = '';
+        this.last = 'num';
         this.push(0);
     },
     calculate: function () {

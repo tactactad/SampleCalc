@@ -1,4 +1,3 @@
-//var SampleCalc = function () {
 function SampleCalc() {
     this.total = 0;
     this.stack = '0';
@@ -9,7 +8,6 @@ function SampleCalc() {
 }
 SampleCalc.prototype = {
     inputValue: function (value) {
-        console.log('input ' + value);
         value = String(value);
         if (!value.match(/^[0-9]{1}$/)) {
             console.log('invalid value...');
@@ -21,11 +19,8 @@ SampleCalc.prototype = {
         this.stack += value;
         this.last = 'num';
         this.push(this.stack);
-        console.log('stack is ' + this.stack);
-        console.log('last is ' + this.last);
     },
     inputOperator: function (newOperator) {
-        console.log('input ' + newOperator);
         newOperator = String(newOperator);
         if (!newOperator.match(/^(add|sub|mult|div)$/)) {
             console.log('invalid value...');
@@ -34,44 +29,24 @@ SampleCalc.prototype = {
         if (this.last !== 'num') {
             this.operator = '';
         }
-        if (this.operator) {
-            this.calculate();
-        } else {
-            this.total = parseInt(this.stack, 10);
-        }
+        this.calculate();
         this.operator = newOperator;
         this.last = 'op';
         this.push(this.total);
-        console.log('total is ' + this.total);
-        console.log('operator is ' + this.operator);
-        console.log('last is ' + this.last);
     },
     equal: function () {
-        console.log('operator is equal');
-        if (this.operator) {
-            this.calculate();
-        } else {
-            this.total = parseInt(this.stack, 10);
-        }
+        this.calculate();
         this.operator = '';
         this.push(this.total);
         this.last = 'eq';
-        console.log('operator is ' + this.operator);
-        console.log('last is ' + this.last);
     },
     clear: function () {
-        console.log('operator is clear');
         this.total = 0;
         this.last = 'num';
         this.operator = '';
         this.push(0);
-        console.log('total is ' + this.total);
-        console.log('stack is ' + this.stack);
-        console.log('last is ' + this.last);
-        console.log('operator is ' + this.operator);
     },
     calculate: function () {
-        console.log('start calculate...');
         var stack = parseInt(this.stack, 10);
         switch (this.operator) {
         case 'add':
@@ -91,23 +66,16 @@ SampleCalc.prototype = {
             }
             break;
         default:
+            this.total = stack;
             break;
         }
-        console.log('total is ' + this.total);
-        console.log('stack is ' + this.stack);
-        console.log('last is ' + this.last);
-        console.log('end calculate...');
     },
     mCalculate: function (mOperator) {
-        console.log('start mCalculate...');
         mOperator = String(mOperator);
         if (!mOperator.match(/^(mAdd|mSub|mResult|mClear)$/)) {
-            console.log('invalid value...');
             return;
         }
         var exp = parseInt(this.stack, 10);
-        console.log('exp is ' + exp);
-        console.log('mOperator is ' + mOperator);
         switch (mOperator) {
         case 'mAdd':
             this.mTotal = this.mTotal + exp;
@@ -128,46 +96,42 @@ SampleCalc.prototype = {
         if (mOperator !== 'mResult') {
             this.display(exp);
         }
-        console.log('mTotal is ' + this.mTotal);
-        console.log('total is ' + this.total);
-        console.log('last is ' + this.last);
-        console.log('end mCalculate...');
     },
     push: function (value) {
         this.stack = String(value);
         this.display(this.stack);
     },
     display: function (value) {
-        $('#screen span').fadeOut('fast', function() {
+        $('#screen span').fadeOut('fast', function () {
             $('#screen span').text(String(parseInt(value, 10)));
             $('#screen span').fadeIn('fast');
         });// 小数点を無視するので丸めてる
     }
 };
 
-$(function() {
+$(function () {
     var calc = new SampleCalc();
-    $('.num').each(function() {
+    $('.num').each(function () {
         var value = $(this).data('value');
-        $(this).click(function() {
+        $(this).click(function () {
             calc.inputValue(value);
         });
     });
     $('.op').each(function() {
         var operator = $(this).data('value');
-        $(this).click(function() {
+        $(this).click(function () {
             calc.inputOperator(operator);
         });
     });
-    $('#buttonClear').click(function() {
+    $('#buttonClear').click(function () {
         calc.clear();
     });
-    $('#buttonEqual').click(function() {
+    $('#buttonEqual').click(function () {
         calc.equal();
     });
-    $('.mOp').each(function() {
+    $('.mOp').each(function () {
         var operator = $(this).data('value');
-        $(this).click(function() {
+        $(this).click(function () {
             calc.mCalculate(operator);
         });
     });

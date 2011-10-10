@@ -10,7 +10,6 @@ SampleCalc.prototype = {
     inputValue: function (value) {
         value = String(value);
         if (!value.match(/^[0-9]{1}$/)) {
-            console.log('invalid value...');
             return;
         }
         if (this.stack === '0' || this.last !== 'num' ) {
@@ -23,7 +22,6 @@ SampleCalc.prototype = {
     inputOperator: function (newOperator) {
         newOperator = String(newOperator);
         if (!newOperator.match(/^(add|sub|mult|div)$/)) {
-            console.log('invalid value...');
             return;
         }
         if (this.last !== 'num') {

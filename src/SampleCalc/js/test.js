@@ -258,11 +258,6 @@ test('mc', function() {
     this.calc.mCalculate('mClear');
     deepEqual(this.calc.mTotal, 0);
 });
-test('validate', function() {
-    this.calc.mCalculate('mResult');
-    this.calc.mCalculate('add');
-    this.calc.mCalculate(5);
-});
 
 module('buttonClick', {
     setup: function() {

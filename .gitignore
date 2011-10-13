@@ -3,3 +3,4 @@ bin/
 docs/parser/
 src/SampleCalc/SampleCalc.xcodeproj/xcuserdata/
 src/SampleCalc/SampleCalc.xcodeproj/project.xcworkspace/
+src/SampleCalc/SampleCalc.xcodeproj/tac.*

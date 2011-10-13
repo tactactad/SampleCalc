@@ -1,2 +1,5 @@
 .DS_Store
-
+bin/
+docs/parser/
+src/SampleCalc/SampleCalc.xcodeproj/xcuserdata/
+src/SampleCalc/SampleCalc.xcodeproj/project.xcworkspace/

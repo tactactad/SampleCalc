@@ -108,6 +108,9 @@ SampleCalc.prototype = {
 };
 
 $(function () {
+  document.addEventListener("deviceready", function () {
+  navigator.notification.alert("PhoneGap is working");
+                            
     var calc = new SampleCalc();
     $('.num').each(function () {
         var value = $(this).data('value');
@@ -133,4 +136,5 @@ $(function () {
             calc.mCalculate(operator);
         });
     });
+                          }, false);
 });

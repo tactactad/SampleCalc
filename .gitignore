@@ -1,2 +1,5 @@
 .DS_Store
-
+bin/
+docs/parser/
+SampleCalc.xcodeproj/
+www/

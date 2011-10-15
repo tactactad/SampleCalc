@@ -7,7 +7,7 @@ function SampleCalc() {
 
     this.mTotal = 0;
 }
-// SampleClac Prototype拡張
+// SampleCalc Prototype拡張
 SampleCalc.prototype = {
     // 数値入力を受け付ける。
     inputValue: function (value) {

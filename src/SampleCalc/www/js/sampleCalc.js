@@ -107,11 +107,27 @@ SampleCalc.prototype = {
     }
 };
 
+function startWatching(calc) {
+    var success = function (coords) {
+        var max = 0;
+        if (Math.abs(coords.x) > max
+            || Math.abs(coords.y) > max
+            || Math.abs(coords.z) > max) {
+            calc.clear();
+        }
+    };
+    var error = function () {};
+    var options = {};
+    options.frequency = 100;
+    navigator.accelerometer.watchAcceleration(success, error, options);
+}
+
 $(function () {
+  var calc = new SampleCalc();
   document.addEventListener("deviceready", function () {
-  navigator.notification.alert("PhoneGap is working");
+    navigator.notification.alert("PhoneGap is working");
+                            startWatching(calc);
                             
-    var calc = new SampleCalc();
     $('.num').each(function () {
         var value = $(this).data('value');
         $(this).click(function () {
@@ -136,5 +152,6 @@ $(function () {
             calc.mCalculate(operator);
         });
     });
+
                           }, false);
 });

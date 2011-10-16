@@ -109,7 +109,7 @@ SampleCalc.prototype = {
 
 function startWatching(calc) {
     var success = function (coords) {
-        var max = 0;
+        var max = 2;
         if (Math.abs(coords.x) > max
             || Math.abs(coords.y) > max
             || Math.abs(coords.z) > max) {

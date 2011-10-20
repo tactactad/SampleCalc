@@ -8,6 +8,7 @@ function SampleCalc() {
 }
 SampleCalc.prototype = {
     inputValue: function (value) {
+        console.log('inputValueに渡された値は ' + value + ' です。');
         value = String(value);
         if (!value.match(/^[0-9]{1}$/)) {
             return;
@@ -20,6 +21,7 @@ SampleCalc.prototype = {
         this.push(this.stack);
     },
     inputOperator: function (newOperator) {
+        console.log('inputOperatorに渡された値は ' + newOperator + ' です。');
         newOperator = String(newOperator);
         if (!newOperator.match(/^(add|sub|mult|div)$/)) {
             return;
@@ -33,12 +35,14 @@ SampleCalc.prototype = {
         this.push(this.total);
     },
     equal: function () {
+        console.log('=ボタンが押されました。');
         this.calculate();
         this.operator = '';
         this.last = 'eq';
         this.push(this.total);
     },
     clear: function () {
+        cosole.log('Cボタンが押されました。');
         this.total = 0;
         this.operator = '';
         this.last = 'num';

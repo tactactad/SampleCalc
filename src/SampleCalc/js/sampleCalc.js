@@ -42,7 +42,7 @@ SampleCalc.prototype = {
         this.push(this.total);
     },
     clear: function () {
-        cosole.log('Cボタンが押されました。');
+        console.log('Cボタンが押されました。');
         this.total = 0;
         this.operator = '';
         this.last = 'num';

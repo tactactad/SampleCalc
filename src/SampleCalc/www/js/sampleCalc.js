@@ -100,10 +100,7 @@ SampleCalc.prototype = {
         this.display(this.stack);
     },
     display: function (value) {
-        $('#screen span').fadeOut('fast', function () {
-            $('#screen span').text(String(parseInt(value, 10)));
-            $('#screen span').fadeIn('fast');
-        });// 小数点を無視するので丸めてる
+        $('#screen span').text(String(parseInt(value, 10)));// 小数点を無視するので丸めてる
     }
 };
 

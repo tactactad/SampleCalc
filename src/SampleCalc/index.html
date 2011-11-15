@@ -6,42 +6,48 @@
   <title>SampleCalc.</title>
 </head>
 <body>
-<div id="calculator">
-<div id="screen"><span>0</span></div>
-<div class="buttonBox">
-    <div id="buttonMAdd" class="button mOp" data-value="mAdd">m+</div>
-    <div id="buttonMSub" class="button mOp" data-value="mSub">m-</div>
-    <div id="buttonMResult" class="button mOp" data-value="mResult">mr</div>
-    <div id="buttonMClear" class="button mOp" data-value="mClear">mc</div>
-</div>
-<div class="buttonBox">
-    <div id="button7" class="button num" data-value="7">7</div>
-    <div id="button8" class="button num" data-value="8">8</div>
-    <div id="button9" class="button num" data-value="9">9</div>
-    <div id="buttonDiv" class="button op" data-value="div">/</div>
-</div>
-<div class="buttonBox">
-    <div id="button4" class="button num" data-value="4">4</div>
-    <div id="button5" class="button num" data-value="5">5</div>
-    <div id="button6" class="button num" data-value="6">6</div>
-    <div id="buttonMult" class="button op" data-value="mult">*</div>
-</div>
-<div class="buttonBox">
-    <div id="button1" class="button num" data-value="1">1</div>
-    <div id="button2" class="button num" data-value="2">2</div>
-    <div id="button3" class="button num" data-value="3">3</div>
-    <div id="buttonSub" class="button op" data-value="sub">-</div>
-</div>
-<div class="buttonBox">
-    <div id="button0" class="button num" data-value="0">0</div>
-    <!--div id="buttonDec" class="button num" data-value="dec">.</div-->
-    <div id="buttonClear" class="button" data-value="clear">C</div>
-    <div id="buttonEqual" class="button" data-value="equal">=</div>
-    <div id="buttonAdd" class="button op" data-value="add">+</div>
-</div>
-<div class="buttonBox"></div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <div id="calculator">
+    <div id="screen"><span>0</span></div>
+    <div id="rightButtonBox">
+      <div id="buttonDiv" class="button op" data-value="div">/</div>
+      <div id="buttonMult" class="button op" data-value="mult">*</div>
+      <div id="buttonSub" class="button op" data-value="sub">-</div>
+      <div id="buttonAdd" class="button op" data-value="add">+</div>
+      <div id="buttonEqual" class="button" data-value="equal">=</div>
+    </div>
+
+    <div id="leftButtonBox">
+      <div class="buttonBox">
+        <div id="buttonMAdd" class="button mOp" data-value="mAdd">m+</div>
+        <div id="buttonMSub" class="button mOp" data-value="mSub">m-</div>
+        <div id="buttonMResult" class="button mOp" data-value="mResult">mr</div>
+        <div id="buttonMClear" class="button mOp" data-value="mClear">mc</div>
+      </div>
+      <div class="buttonBox numBox">
+        <div id="button7" class="button num" data-value="7">7</div>
+        <div id="button8" class="button num" data-value="8">8</div>
+        <div id="button9" class="button num" data-value="9">9</div>
+      </div>
+      <div class="buttonBox numBox">
+        <div id="button4" class="button num" data-value="4">4</div>
+        <div id="button5" class="button num" data-value="5">5</div>
+        <div id="button6" class="button num" data-value="6">6</div>
+      </div>
+      <div class="buttonBox numBox">
+        <div id="button1" class="button num" data-value="1">1</div>
+        <div id="button2" class="button num" data-value="2">2</div>
+        <div id="button3" class="button num" data-value="3">3</div>
+      </div>
+      <div class="buttonBox numBox">
+        <div id="button0" class="button num" data-value="0">0</div>
+        <div id="buttonDec" class="button num" data-value="dec">.</div>
+        <div id="buttonClear" class="button num" data-value="clear">C</div>
+      </div>
+    </div>
+    <div style="clear: right; display:block; border-bottom: 1px solid #000;"></div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="js/sampleCalc.js"></script>
 </body>
 </html>

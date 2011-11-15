@@ -46,10 +46,6 @@
     background-color: @calculatorBackgroundColor;
 }
 
-#calculator > div > div {
-    margin: 5px;
-}
-
 #screen {
     color: @screenColor;
     text-align: right;
@@ -57,91 +53,116 @@
     padding: 2px;
     background-color: @screenBackgroundColor;
     .borderRadius(5px, 0, 0, 0);
-}
 
-#screen > span {
-    margin-right: 2px;
-    margin-left: 2px;
+    span {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
 }
 
 .button {
     text-align:center;
     border: 1px solid #000;
     width: 30px;
-    float: left;
     .boxShadow(2px, 2px, 1px, rgba(0, 0, 0, 0.5);
     .borderRadiusAll(3px);
     cursor: pointer;
 }
 
+#rightButtonBox {
+    float: right;
+    border-top: 1px solid #000;
+    margin-bottom: -5px;
+
+    .button {
+        margin: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+#leftButtonBox {
+    .numBox {
+        margin-left: 1px;
+    }
+}
+
+.buttonBox {
+    clear: left;
+    border-bottom: 1px solid #000;
+    margin-right: 2px;
+
+    .button {
+        float: left;
+    }
+    .mOp {
+        width: 26px;
+        margin: 2px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .num {
+        margin: 5px;
+    }
+}
+
 .num {
     .setButtonColor(@numButtonColor, @numButtonBackgroundColor);
-}
 
-.num:hover {
-    .setButtonColor(@numButtonHoverColor, @numButtonHoverBackgroundColor);
-}
-
-.num:active {
-    .buttonActive;
-    .setButtonColor(@numButtonActiveColor, @numButtonActiveBackgroundColor);
+    &:hover {
+        .setButtonColor(@numButtonHoverColor, @numButtonHoverBackgroundColor);
+    }
+    &:active {
+        .buttonActive;
+        .setButtonColor(@numButtonActiveColor, @numButtonActiveBackgroundColor);
+    }
 }
 
 .op {
     .setButtonColor(@opButtonColor, @opButtonBackgroundColor);
-}
 
-.op:hover {
-    .setButtonColor(@opButtonHoverColor, @opButtonHoverBackgroundColor);
-}
-
-.op:active {
-    .buttonActive;
-    .setButtonColor(@opButtonActiveColor, @opButtonActiveBackgroundColor);
+    &:hover {
+        .setButtonColor(@opButtonHoverColor, @opButtonHoverBackgroundColor);
+    }
+    &:active {
+        .buttonActive;
+        .setButtonColor(@opButtonActiveColor, @opButtonActiveBackgroundColor);
+    }
 }
 
 #buttonClear {
     .setButtonColor(@clearButtonColor, @clearButtonBackgroundColor);
-}
 
-#buttonClear:hover {
-    .setButtonColor(@clearButtonHoverColor, @clearButtonHoverBackgroundColor);
-}
-
-#buttonClear:active {
-    .buttonActive;
-    .setButtonColor(@clearButtonActiveColor, @clearButtonActiveBackgroundColor);
+    &:hover {
+        .setButtonColor(@clearButtonHoverColor, @clearButtonHoverBackgroundColor);
+    }
+    &:active {
+        .buttonActive;
+        .setButtonColor(@clearButtonActiveColor, @clearButtonActiveBackgroundColor);
+    }
 }
 
 #buttonEqual {
     .setButtonColor(@equalButtonColor, @equalButtonBackgroundColor);
-}
 
-#buttonEqual:hover {
-    .setButtonColor(@equalButtonHoverColor, @equalButtonHoverBackgroundColor);
-}
-
-#buttonEqual:active {
-    .buttonActive;
-    .setButtonColor(@equalButtonActiveColor, @equalButtonActiveBackgroundColor);
+    &:hover {
+        .setButtonColor(@equalButtonHoverColor, @equalButtonHoverBackgroundColor);
+    }
+    &:active {
+        .buttonActive;
+        .setButtonColor(@equalButtonActiveColor, @equalButtonActiveBackgroundColor);
+    }
 }
 
 .mOp {
     .setButtonColor(@mOpButtonColor, @mOpButtonBackgroundColor);
-}
 
-.mOp:hover {
-    .setButtonColor(@mOpButtonHoverColor, @mOpButtonHoverBackgroundColor);
-}
-
-.mOp:active {
-    .buttonActive;
-    .setButtonColor(@mOpButtonActiveColor, @mOpButtonActiveBackgroundColor);
-}
-
-.buttonBox {
-    border-bottom: 1px solid #000;
-    clear: left;
+    &:hover {
+        .setButtonColor(@mOpButtonHoverColor, @mOpButtonHoverBackgroundColor);
+    }
+    &:active {
+        .buttonActive;
+        .setButtonColor(@mOpButtonActiveColor, @mOpButtonActiveBackgroundColor);
+    }
 }
 
 .buttonActive {

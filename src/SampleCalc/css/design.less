@@ -44,6 +44,12 @@
     .boxShadow(2px, 2px, 0);
     .borderRadius(5px, 0, 5px, 0);
     background-color: @calculatorBackgroundColor;
+
+    hr {
+        border: 0;
+        border-top: 1px solid #000;
+        margin: 0px;
+    }
 }
 
 #screen {
@@ -71,7 +77,6 @@
 
 #rightButtonBox {
     float: right;
-    border-top: 1px solid #000;
     margin-bottom: -5px;
 
     .button {
@@ -83,13 +88,13 @@
 #leftButtonBox {
     .numBox {
         margin-left: 1px;
+        border-bottom: 1px solid #000;
     }
 }
 
 .buttonBox {
     clear: left;
-    border-bottom: 1px solid #000;
-    margin-right: 2px;
+    margin-right: 1px;
 
     .button {
         float: left;
@@ -100,7 +105,8 @@
         margin-top: 5px;
         margin-bottom: 5px;
     }
-    .num {
+    .num,
+    .op {
         margin: 5px;
     }
 }

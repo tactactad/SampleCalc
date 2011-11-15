@@ -99,6 +99,20 @@ test('input after equal', function () {
     deepEqual(this.calc.operator, '');
     deepEqual(this.calc.total, 4);
 });
+test('input after operator', function () {
+    expect(4);
+    this.calc.inputValue(2);
+    this.calc.inputOperator('add');
+    this.calc.inputValue(3);
+    deepEqual(this.calc.stack, '3');
+    this.calc.inputValue(5);
+    deepEqual(this.calc.stack, '35');
+    this.calc.inputOperator('mult');
+    deepEqual(this.calc.stack, '37');
+    this.calc.inputValue('dec');
+    this.calc.inputValue(5);
+    deepEqual(this.calc.stack, '0.5');
+});
 test('validate', function () {
     expect(7);
     this.calc.inputValue('11');
@@ -204,7 +218,7 @@ module('calculate', {
     }
 });
 test('calculate add', function () {
-    expect(4);
+    expect(6);
     this.calc.inputValue('2');
     this.calc.inputOperator('add');
     this.calc.inputValue('3');
@@ -213,9 +227,16 @@ test('calculate add', function () {
     deepEqual(this.calc.total, 5);
     deepEqual(this.calc.last, 'eq');
     deepEqual(this.calc.stack, '5');
+    this.calc.inputOperator('add');
+    this.calc.inputValue(2);
+    this.calc.inputValue('dec');
+    this.calc.inputValue(5);
+    this.calc.equal();
+    deepEqual(this.calc.stack, '7.5');
+    deepEqual(this.calc.total, 7.5);
 });
 test('calculate sub', function () {
-    expect(3);
+    expect(4);
     this.calc.inputValue(2);
     this.calc.inputOperator('sub');
     this.calc.inputValue(3);
@@ -223,9 +244,15 @@ test('calculate sub', function () {
     deepEqual(this.calc.operator, '');
     deepEqual(this.calc.total, -1);
     deepEqual(this.calc.stack, '-1');
+    this.calc.inputOperator('sub');
+    this.calc.inputValue(1);
+    this.calc.inputValue('dec');
+    this.calc.inputValue('3');
+    this.calc.equal();
+    deepEqual(this.calc.stack, '-2.3');
 });
 test('calcute mult', function () {
-    expect(3);
+    expect(4);
     this.calc.inputValue(2);
     this.calc.inputOperator('mult');
     this.calc.inputValue(3);
@@ -233,9 +260,14 @@ test('calcute mult', function () {
     deepEqual(this.calc.operator, 'add');
     deepEqual(this.calc.total, 6);
     deepEqual(this.calc.stack, '6');
+    this.calc.inputOperator('mult');
+    this.calc.inputValue('dec');
+    this.calc.inputValue(5);
+    this.calc.equal();
+    deepEqual(this.calc.stack, '3');
 });
 test('calculate div', function () {
-    expect(5);
+    expect(6);
     this.calc.inputOperator('div');
     this.calc.inputValue(4);
     this.calc.equal();
@@ -248,6 +280,11 @@ test('calculate div', function () {
     this.calc.equal();
     deepEqual(this.calc.total, 3);
     deepEqual(this.calc.stack, '3');
+    this.calc.inputOperator('div');
+    this.calc.inputValue('dec');
+    this.calc.inputValue(5);
+    this.calc.equal();
+    deepEqual(this.calc.stack, '6');
 });
 
 module('mCalculate', {
@@ -256,20 +293,28 @@ module('mCalculate', {
     }
 });
 test('m+', function () {
-    expect(1);
+    expect(2);
     this.calc.inputValue('5');
     this.calc.mCalculate('mAdd');
     this.calc.inputValue(4);
     this.calc.mCalculate('mAdd');
     deepEqual(this.calc.mTotal, 9);
+    this.calc.inputValue('dec');
+    this.calc.inputValue(5);
+    this.calc.mCalculate('mAdd');
+    deepEqual(this.calc.mTotal, 9.5);
 });
 test('m-', function () {
-    expect(1);
+    expect(2);
     this.calc.inputValue('5');
     this.calc.mCalculate('mAdd');
     this.calc.inputValue(4);
     this.calc.mCalculate('mSub');
     deepEqual(this.calc.mTotal, 1);
+    this.calc.inputValue('dec');
+    this.calc.inputValue(5);
+    this.calc.mCalculate('mSub');
+    deepEqual(this.calc.mTotal, 0.5);
 });
 test('mr', function () {
     expect(2);

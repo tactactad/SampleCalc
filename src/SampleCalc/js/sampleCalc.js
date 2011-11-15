@@ -13,13 +13,14 @@ SampleCalc.prototype = {
         if (!value.match(/^([0-9]{1}|dec)$/)) {
             return;
         }
+        if (this.stack === '0' || this.last !== 'num') {
+            this.stack = '';
+        }
         if (value === 'dec') {
             if (this.stack.match(/\./)) { // 既に小数の場合は無視する。
                 return;
             }
-            value = '.';
-        } else if (this.stack === '0' || this.last !== 'num') {
-            this.stack = '';
+            value = (this.stack === '') ? '0.' : '.';
         }
         this.stack += value;
         this.last = 'num';
@@ -111,7 +112,7 @@ SampleCalc.prototype = {
     },
     display: function (value) {
         $('#screen span').fadeOut(100, function () {
-            $(this).text(value);
+            $(this).text(String(value));
             $(this).show()
         });// 小数点を無視するので丸めてる
 //       $('#screen span').text(String(parseInt(value, 10)));// 小数点を無視するので丸めてる

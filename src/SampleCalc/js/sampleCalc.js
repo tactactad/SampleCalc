@@ -10,10 +10,15 @@ SampleCalc.prototype = {
     inputValue: function (value) {
         console.log('inputValueに渡された値は ' + value + ' です。');
         value = String(value);
-        if (!value.match(/^[0-9]{1}$/)) {
+        if (!value.match(/^([0-9]{1}|dec)$/)) {
             return;
         }
-        if (this.stack === '0' || this.last !== 'num' ) {
+        if (value === 'dec') {
+            if (this.stack.match(/\./)) { // 既に小数の場合は無視する。
+                return;
+            }
+            value = '.';
+        } else if (this.stack === '0' || this.last !== 'num') {
             this.stack = '';
         }
         this.stack += value;
@@ -49,7 +54,7 @@ SampleCalc.prototype = {
         this.push(0);
     },
     calculate: function () {
-        var stack = parseInt(this.stack, 10);
+        var stack = Number(this.stack);
         switch (this.operator) {
         case 'add':
             this.total = this.total + stack;
@@ -77,7 +82,7 @@ SampleCalc.prototype = {
         if (!mOperator.match(/^(mAdd|mSub|mResult|mClear)$/)) {
             return;
         }
-        var exp = parseInt(this.stack, 10);
+        var exp = Number(this.stack);
         switch (mOperator) {
         case 'mAdd':
             this.mTotal = this.mTotal + exp;
@@ -100,12 +105,13 @@ SampleCalc.prototype = {
         }
     },
     push: function (value) {
+        console.log('push への value の値は' + value + 'です。');
         this.stack = String(value);
         this.display(this.stack);
     },
     display: function (value) {
         $('#screen span').fadeOut(100, function () {
-            $(this).text(String(parseInt(value, 10)));
+            $(this).text(value);
             $(this).show()
         });// 小数点を無視するので丸めてる
 //       $('#screen span').text(String(parseInt(value, 10)));// 小数点を無視するので丸めてる

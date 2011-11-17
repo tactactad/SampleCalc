@@ -21,6 +21,9 @@
 @opButtonHoverBackgroundColor: #999999;
 @opButtonActiveBackgroundColor: #999999;
 
+@opButtonHoldColor: #ffffff;
+@opButtonHoldBackgroundColor: saturate(@opButtonBackgroundColor, 30%);
+
 @clearButtonColor: #ffffff;
 @clearButtonBorderColor: #000000;
 @clearButtonHoverColor: #ffffff;
@@ -146,7 +149,6 @@
     .setButtonColor(@opButtonColor,
                     @opButtonBackgroundColor,
                     @opButtonBorderColor);
-    .buttonGradient(@opButtonBackgroundColor);
 
     &:hover {
         .setButtonColor(@opButtonHoverColor,
@@ -161,11 +163,21 @@
     }
 }
 
+.opFree {
+    .buttonGradient(@opButtonBackgroundColor);
+}
+
+.opHold {
+    color: @opButtonHoldColor;
+    .buttonGradient(@opButtonHoldBackgroundColor);
+}
+
 #buttonClear {
     .setButtonColor(@clearButtonColor,
                     @clearButtonBackgroundColor,
                     @clearButtonBorderColor);
     .buttonGradientLighten(@clearButtonBackgroundColor);
+    margin: 5px;
 
     &:hover {
         .setButtonColor(@clearButtonHoverColor,
@@ -262,7 +274,7 @@
 .buttonGradient(@color) {
     @topColor: lighten(@color, 10%);
     @bottomColor: darken(@color, 10%);
-    background-color: @color;
+    /* background-color: @color; */
     background: -webkit-gradient(linear, left top, left bottom,
                                  color-stop(0, @topColor),
                                  color-stop(1, @bottomColor));
@@ -270,9 +282,9 @@
 }
 
 .buttonGradientLighten(@color) {
-    @topColor: lighten(@color, 30%);
+    @topColor: lighten(@color, 20%);
     @bottomColor: @color;
-    background-color: lighten(@color, 10%);
+    /* background-color: lighten(@color, 10%); */
     background: -webkit-gradient(linear, left top, left bottom,
                                  color-stop(0, @topColor),
                                  color-stop(1, @bottomColor));

@@ -7,12 +7,23 @@ function SampleCalc() {
     this.mTotal = 0;
 }
 SampleCalc.prototype = {
+    releaseAllOpButtons: function () {
+        $('.op').each(function () {
+            $(this).removeClass('opHold');
+        });
+    },
+    holdOpButton: function (holdOp) {
+        this.releaseAllOpButtons();
+        $('div[data-value="' + holdOp + '"]').addClass('opHold');
+    },
     inputValue: function (value) {
         console.log('inputValueに渡された値は ' + value + ' です。');
         value = String(value);
         if (!value.match(/^([0-9]{1}|dec)$/)) {
             return;
         }
+        this.releaseAllOpButtons();
+
         if (this.stack === '0' || this.last !== 'num') {
             this.stack = '';
         }
@@ -32,6 +43,8 @@ SampleCalc.prototype = {
         if (!newOperator.match(/^(add|sub|mult|div)$/)) {
             return;
         }
+        this.holdOpButton(newOperator);
+
         if (this.last !== 'num') {
             this.operator = '';
         }
@@ -42,6 +55,7 @@ SampleCalc.prototype = {
     },
     equal: function () {
         console.log('=ボタンが押されました。');
+        this.releaseAllOpButtons();
         this.calculate();
         this.operator = '';
         this.last = 'eq';
@@ -49,6 +63,7 @@ SampleCalc.prototype = {
     },
     clear: function () {
         console.log('Cボタンが押されました。');
+        this.releaseAllOpButtons();
         this.total = 0;
         this.operator = '';
         this.last = 'num';

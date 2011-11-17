@@ -347,6 +347,12 @@ module('buttonClick', {
         $('#button3').click(function () {
             theThis.calc.inputValue(3);
         });
+        $('.op').each(function() {
+            var operator = $(this).data('value');
+            $(this).click(function () {
+                theThis.calc.inputOperator(operator);
+            });
+        });
     }
 });
 asyncTest('numButton clicked', function () {
@@ -356,4 +362,17 @@ asyncTest('numButton clicked', function () {
         deepEqual($('#screen').text(), '3');
         start();
     }, 500);
+});
+test('opButton clicked', function () {
+    expect(2);
+    $('#buttonDiv').click();
+    ok(($('#buttonDiv').attr('class')).indexOf('opHold') !== -1);
+    ok(($('#buttonAdd').attr('class')).indexOf('opHold') === -1);
+});
+test('releaseAllOpButtons', function () {
+    expect(2);
+    $('#buttonAdd').click();
+    ok(($('#buttonAdd').attr('class')).indexOf('opHold') !== -1);
+    this.calc.releaseAllOpButtons();
+    ok(($('#buttonAdd').attr('class')).indexOf('opHold') === -1);
 });

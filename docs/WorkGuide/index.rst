@@ -3,13 +3,23 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to SampleCalc work guide's documentation!
+.. Welcome to SampleCalc work guide's documentation!
+
+SampleCalc 〜脱ゆとり宣言〜 を作ろう。
 =================================================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
+
+   first
+   specifications
+   preparations
+   events
+   calculations
+   customize
+   appendix
 
 
 

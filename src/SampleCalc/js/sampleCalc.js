@@ -136,17 +136,13 @@ SampleCalc.prototype = {
 
 $(function () {
     var calc = new SampleCalc();
-    $('.num').each(function () {
+    $('.num').click(function () {
         var value = $(this).data('value');
-        $(this).click(function () {
-            calc.inputValue(value);
-        });
+        calc.inputValue(value);
     });
-    $('.op').each(function() {
-        var operator = $(this).data('value');
-        $(this).click(function () {
-            calc.inputOperator(operator);
-        });
+    $('.op').click(function() {
+        var value = $(this).data('value');
+        calc.inputOperator(value);
     });
     $('#buttonClear').click(function () {
         calc.clear();
@@ -154,10 +150,8 @@ $(function () {
     $('#buttonEqual').click(function () {
         calc.equal();
     });
-    $('.mOp').each(function () {
-        var operator = $(this).data('value');
-        $(this).click(function () {
-            calc.mCalculate(operator);
-        });
+    $('.mOp').click(function () {
+        var value = $(this).data('value');
+        calc.mCalculate(value);
     });
 });

@@ -27,6 +27,7 @@
 .. image:: images/sampleCalc.png
    :alt: SampleCalc ScreenShot
    :align: right
+   :target: http://www.youtube.com/watch?v=HmTNsfF_91A
 
 次に画面構成を確認しましょう。
 

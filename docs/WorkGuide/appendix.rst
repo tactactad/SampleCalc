@@ -27,12 +27,39 @@ JavaScript Lint
 
         0 error(s), 0 warning(s)
 
-    もちろんSampleCalcはバッチリ通ります :-)
+    もちろんSampleCalcはバッチリ通ってますよ :-)
 
 QUnit
 ==============================
 
+.. image:: images/qunit.png
+    :align: right
+
+`QUnit - jQuery JavaScript Library <http://docs.jquery.com/QUnit>`_
+
+*QUnit* は「強力、かつ簡単」を合い言葉に開発された *JavaScript* 用のUnitTestツールです。元々は *jQuery* 専用として依存したライブラリでしたが、今では単体でも動作するようになっています。*jQuery* も *QUnit* 自体も、もちろん *QUnit* でテストされていますよ。
+
+テストのやり方は他のUnitTestツールを使った事があればすんなり馴染めるものだと思います。それを *jQuery* 風に記述していきます。また、決まった書式でテスト実行用 *HTML* 書類を作成する事で、テスト結果を美しく表示してくれます。Ajax通信にも対応しており、工夫次第ではUIのテストもできます（私はできませんけど）。
 
 
-Less
+
+LESS
 ==============================
+
+`LESS « The Dynamic Stylesheet language <http://lesscss.org/>`_
+
+*LESS* は *CSS* を拡張しプログラマブルに記述できるようにするプリプロセッサです。 *LESS* 自体は *JavaScript* で記述されているので、事前に変換して使う以外にもクライアントサイドやサーバサイドでも実行できます（ *Node* を使ったりして）。変数やMix-in、入れ子にできたり、引数を受け取る関数的な使い方もできるようになります。基本的に冗長な記述を排除する方向です。
+
+.. note::
+
+    同様に *CSS* を拡張する仕組みとしては *Sass* などもあります。
+
+    `Sass - Syntactically Awesome Stylesheets <http://sass-lang.com/>`_
+
+私はLESS書類の更新を監視して自動で変換するツールを愛用しています（ `LESS.app For Mac OS X <http://incident57.com/less/>`_ ）。これがなかったら *LESS* じゃなかったかも。
+
+.. note::
+
+    `SimpLESS - Your LESS CSS Compiler <http://wearekiss.com/simpless>`_
+
+    こちらのアプリはクロスプラットフォームみたいです。素晴らしい :-)

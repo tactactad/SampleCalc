@@ -128,9 +128,8 @@ SampleCalc.prototype = {
     display: function (value) {
         $('#screen span').fadeOut(100, function () {
             $(this).text(String(value));
-            $(this).show()
-        });// 小数点を無視するので丸めてる
-//       $('#screen span').text(String(parseInt(value, 10)));// 小数点を無視するので丸めてる
+            $(this).show();
+        });
     }
 };
 

@@ -19,6 +19,7 @@ Contents:
    events
    calculations
    customize
+   appendix
 
 
 

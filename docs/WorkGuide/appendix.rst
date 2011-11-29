@@ -63,3 +63,12 @@ LESS
     `SimpLESS - Your LESS CSS Compiler <http://wearekiss.com/simpless>`_
 
     こちらのアプリはクロスプラットフォームみたいです。素晴らしい :-)
+
+Sphinx
+==============================
+
+`Overview — Sphinx 1.1.2 documentation <http://sphinx.pocoo.org/>`_
+
+*Sphinx* は「簡単に美しいドキュメントを作成」できるようにと作られた *Python* 製のツールです。 *reStructuredText* をマークアップ言語として採用しています。出力フォーマットに *HTML* や *PDF* を選択する事ができるのですけど、今回は *HTML* を選択しました（PDF化はしんどくて諦めましたのですけど）。
+
+あまり凝った組版的な事はできませんが、必要最小限+アルファがある感じで気に入っています。

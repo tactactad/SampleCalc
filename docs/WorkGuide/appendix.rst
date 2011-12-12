@@ -4,6 +4,16 @@
 
 SampleCalc作成に直接は関係しないオフトピックです。開発時にお世話になったツールなどを紹介します。
 
+Git & GitHub
+==============================
+
+`Git - Fast Version Control System <http://git-scm.com/>`_
+`GitHub <https://github.com/>`_
+
+恐らく一番普及しているであろう **分散型バージョン管理システム** とそのホスティングサービス。  *Git* は *Linux* の *Linus Torvalds* により開発されました。 *GitHub* は GitHub社によって運営されています。
+
+私は元々 *Git* ではなくて *Mercurial* を使っていましたが、みんなが *GitHub* しか使わないのであっさりと乗り換えました。SampleCalcのソースも、このドキュメントも *GitHub* 上で公開しています。
+
 JavaScript Lint
 ==============================
 

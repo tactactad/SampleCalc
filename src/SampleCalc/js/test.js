@@ -335,9 +335,13 @@ test('mc', function () {
     deepEqual(this.calc.mTotal, 0);
 });
 test('validate', function () {
-    this.calc.mCalculate('mResult');
+    expect(2);
+    this.calc.inputValue('1');
+    this.calc.mCalculate('mAdd');
     this.calc.mCalculate('add');
+    deepEqual(this.calc.mTotal, 1);
     this.calc.mCalculate(5);
+    deepEqual(this.calc.mTotal, 1);
 });
 
 module('buttonClick', {
